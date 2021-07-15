@@ -3,7 +3,10 @@ const assert = require("assert");
 
 const url = "mongodb://localhost:27017";
 const dbName = "to-do-db";
-const client = new MongoClient(url, { useUnifieldTopology: true });
+const client = new MongoClient(url, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 var _db;
 function connectToDB(callback) {
