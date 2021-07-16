@@ -1,7 +1,10 @@
+const { json } = require("express");
 const express = require("express");
 const app = express();
 const port = 3000;
 const todoRoute = require("./routes/todo");
+
+app.use(express.json())
 
 // tudo que usar essa rota será direcionado para o todoRoute
 app.use("/todo", todoRoute);

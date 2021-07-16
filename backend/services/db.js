@@ -44,6 +44,7 @@ const updateDocuments = async (document) => {
       { _id: document._id },
       { $set: document }
     );
+    return results
   } catch (error) {
     throw new Error(error);
   }
@@ -52,7 +53,7 @@ const updateDocuments = async (document) => {
 const removeDocuments = async (document) => {
   const collection = _db.collection("to-do-collection");
   try {
-    const results = await collection.deleteOnde({ _id: document._id });
+    const results = await collection.deleteOne({ _id: document._id });
     return results;
   } catch (error) {
     throw new Error(error);
